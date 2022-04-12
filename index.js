@@ -21,7 +21,7 @@ app.listen(PORT,()=>{
     console.log(`sever is running on ${PORT}`)
 });
 
-// app.use(cors({"Access-Control-Allow-Headers":"*"}));
+app.use(cors());
 
 app.get("/", (req, res)=>{
     res.send("Welcome to the API")
