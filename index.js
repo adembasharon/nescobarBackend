@@ -24,7 +24,7 @@ app.listen(PORT,()=>{
 app.get("/", (req, res)=>{
     res.send("Welcome to the API")
 })
-app.use(cors());
+
 app.use(express.json());
  app.use("/api/auth",userRoutes);
 
