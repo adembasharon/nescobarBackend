@@ -6,9 +6,10 @@ const userRoutes=require("./routes/auth");
 const postRoutes=require("./routes/post")
 
 const app=express()
+dotenv.config()
 
 const PORT=process.env.PORT || 5000;
-dotenv.config()
+
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
     console.log("DBconnected")
