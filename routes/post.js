@@ -75,7 +75,7 @@ router.get("/find/:id",verifyTokenAndAuthorization, async(req,res)=>{
 
 
 // FIND ALL
-router.get("/",verifyTokenAndAuthorization, async(req,res)=>{
+router.get("/", async(req,res)=>{
 
 
     try{ 
