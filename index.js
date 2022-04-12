@@ -1,6 +1,7 @@
 const mongoose=require("mongoose");
 const dotenv=require("dotenv");
 const express=require("express");
+const cors = require("cors");
 const userRoutes=require("./routes/auth");
 const postRoutes=require("./routes/post")
 
@@ -18,6 +19,8 @@ mongoose.connect(process.env.MONGO_URL)
 app.listen(PORT,()=>{
     console.log(`sever is running on ${PORT}`)
 });
+
+app.use(cors());
 app.use(express.json());
  app.use("/api/auth",userRoutes);
 
