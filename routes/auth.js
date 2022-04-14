@@ -31,12 +31,27 @@ router.post("/register", async (req, res) => {
  router.post("/login",async (req,res)=>{
   try{
     const user=await User.findOne({username:req.body.username})
-    !user && res.status(404).json("user not found")
+    if(!user) {
+      return res.status(404).json("user not found")
+    }
+    // !user && res.status(404).json("user not found")
 
     const comparePassword=await bcrypt.compare(req.body.password,user.password)
-    !comparePassword && res.status(404).json("Password does not match")
 
+    if(!comparePassword) {
+      return res.status(404).json("Password does not match")
+    }
+    // !comparePassword && res.status(404).json("Password does not match")
+
+    const details = !user && !comparePassword
+
+    details && res.status(404).json("Wrong credentials. Please Try again.")
     
+    
+    
+    
+
+
     const {password,...others}=user._doc
 
     const accessToken=jwt.sign({
