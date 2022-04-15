@@ -8,7 +8,7 @@ router.post("/booking",async (req , res)=>{
      port: 587,
      auth: {
        user: 'adembasharon816', 
-       pass: '30483049', 
+       pass: 'arona3048', 
     },
    });
 
@@ -23,7 +23,7 @@ router.post("/booking",async (req , res)=>{
      text:`${req.body.message}`, 
      html:`<div><p>${req.body.message}</p></div>`,
   })
-  
+
 console.log(infoContent)
  }
 run()
