@@ -1,15 +1,13 @@
-const router=require("express").Router();
 const nodemailer = require("nodemailer");
 
 
-router.post("/booking",async (req , res)=>{
+
  const transporter = nodemailer.createTransport({
      host: "smtp.gmail.com",
      port: 587,
      auth: {
        user: 'adembasharon816', 
-       pass:  'adwacznhkoqiyuwr', 
-       
+       pass: 'adwacznhkoqiyuwr', 
     },
    });
 
@@ -18,16 +16,15 @@ router.post("/booking",async (req , res)=>{
  async function run() {
 
    let infoContent = await transporter.sendMail({
-     from: `${req.body.name} <${req.body.email}>`, 
+     from: "adembasharon816" ,  
      to: "adembasharon816@gmail.com", 
-     subject:`${req.body.category}`, 
-     text:`${req.body.message}`, 
-     html:`<div><p>${req.body.message}</p></div>`,
+     subject:"work", 
+     text:"working is good", 
+     html:`<p>working is good</p>`,
   })
 
 console.log(infoContent)
  }
 run()
-})
+// })
 
-module.exports=router;
