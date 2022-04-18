@@ -22,7 +22,11 @@ app.listen(PORT,()=>{
     console.log(`sever is running on ${PORT}`)
 });
 
-app.use(cors({'Access-Control-Allow-Origin':'*', "Access-Control-Request-Method": 'POST',origin:"*"}))
+const corsOptions = {
+    "Access-Control-Allow-Origin":"*"
+}
+
+app.use(cors(corsOptions))
 
 app.get("/", (req, res)=>{
     res.send("Welcome to the API")
