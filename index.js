@@ -35,6 +35,6 @@ app.get("/", (req, res)=>{
 app.use(express.json());
  app.use("/api/auth",userRoutes);
 
-app.use("/api",bookingRoutes);
+app.use("/api/booking",bookingRoutes);
  app.use("/api/post",postRoutes);
  
