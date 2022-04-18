@@ -26,5 +26,5 @@ const nodemailer = require("nodemailer");
 console.log(infoContent)
  }
 run()
-// })
+
 

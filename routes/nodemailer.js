@@ -25,7 +25,7 @@ router.post("/booking",async (req , res)=>{
      html:`<div><p>${req.body.message}</p></div>`,
   })
 
-console.log(infoContent)
+return infoContent
  }
 run()
 })
