@@ -19,7 +19,7 @@ router.post("/booking",async (req , res)=>{
    let infoContent = await transporter.sendMail({
      from: `${req.body.name} <${req.body.email}>`, 
      to: "adembasharon816@gmail.com", 
-     subject:`${req.body.cartegory}`, 
+     subject:`${req.body.category}`, 
      text:`${req.body.message}`, 
      html:`<div><p>${req.body.message}</p></div>`,
   })
