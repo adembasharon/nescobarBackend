@@ -57,7 +57,7 @@ router.delete("/:id",verifyTokeAndAdmin,async(req,res)=>{
 
 // find post by id
 
-router.get("/find/:id",verifyTokenAndAuthorization, async(req,res)=>{
+router.get("/find/:id", async(req,res)=>{
 
 
     try{ 
