@@ -7,7 +7,8 @@ const newPost=new Posts({
 postImage:req.body.postImage,
 postTitle:req.body.postTitle,
 postSubtitle:req.body.postSubtitle,
-postDescription:req.body.postDescription
+postDescription:req.body.postDescription,
+postCartegory:req.body.postCartegory
 
 })
 console.log(newPost)
@@ -56,7 +57,6 @@ router.delete("/:id",verifyTokeAndAdmin,async(req,res)=>{
     
 
 // find post by id
-
 
 router.get("/find/:id", async(req,res)=>{
 

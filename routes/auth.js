@@ -26,46 +26,46 @@ router.post("/register", async (req, res) => {
 
 
 
- // Login /
+// Login /
 
- router.post("/login",async (req,res)=>{
-  try{
-    const user=await User.findOne({username:req.body.username})
-    if(!user) {
+router.post("/login", async (req, res) => {
+  try {
+    const user = await User.findOne({ username: req.body.username })
+    if (!user) {
       return res.status(404).json("user not found")
     }
-    // !user && res.status(404).json("user not found")
 
-    const comparePassword=await bcrypt.compare(req.body.password,user.password)
+    const comparePassword = await bcrypt.compare(req.body.password, user.password)
 
-    if(!comparePassword) {
+    if (!comparePassword) {
       return res.status(404).json("Password does not match")
     }
-    // !comparePassword && res.status(404).json("Password does not match")
 
     const details = !user && !comparePassword
 
     details && res.status(404).json("Wrong credentials. Please Try again.")
-    
-    
-    
-    
 
+    const { password, ...others } = user._doc
 
-    const {password,...others}=user._doc
+    const accessToken = jwt.sign({
+      id: user._id,
+      isAdmin: user.isAdmin,
+    }, process.env.JWT_SEC)
+    res.status(200).json({ ...others, accessToken });
 
-    const accessToken=jwt.sign({
-      id:user._id,
-      isAdmin:user.isAdmin,
-          }, process.env.JWT_SEC)
-    res.status(200).json({...others,accessToken});
-
-    }
-    catch(err){
+  }
+  catch (err) {
     res.status(404).json(err)
-    }
-})
-  
+  }nimesahau
 
+})
+
+
+// LOGOUT/
+
+// router.post('/logout', function(req, res){
+//   req.logout();
+//   res.redirect('/dashbord/login');
+// });
 
 module.exports = router
