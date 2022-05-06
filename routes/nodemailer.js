@@ -12,9 +12,6 @@ router.post("/booking",async (req , res)=>{
        
     },
    });
-
-
-
  async function run() {
 
    let infoContent = await transporter.sendMail({
@@ -22,7 +19,7 @@ router.post("/booking",async (req , res)=>{
      to: "adembasharon816@gmail.com", 
      subject:`${req.body.category}`, 
      text:`${req.body.message}`, 
-     html:`<div><p>${req.body.phonenumber}<br/>${req.body.name}<br/>${req.body.message}</p></div>`,
+     html:`<div><p>${req.body.name}<br/>${req.body.phonenumber}<br/>${req.body.message}</p></div>`,
   })
 
 res.status(200).json(infoContent)
