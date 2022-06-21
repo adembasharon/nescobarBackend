@@ -6,12 +6,13 @@ router.post("/booking",async (req , res)=>{
  const transporter = nodemailer.createTransport({
      host: "smtp.gmail.com",
      port: 587,
+     
      auth: {
-      type: "OAuth2",
-      clientId: "612894505463-tl05pd51li29007a9cg0hahmq1pig70m.apps.googleusercontent.com",
-      clientSecret: "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",
+       user: 'lorinesotile', 
+       pass:  'nlphzoepyvmcgjks'
+       
     },
-    
+    // 0703840365
    });
  async function run() {
 

@@ -27,6 +27,9 @@ res.status(404).json(err)
  })
 
 
+ 
+
+
 //  update Post
 router.put("/:id", verifyTokeAndAdmin, async (req,res)=>{
     try{
