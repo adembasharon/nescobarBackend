@@ -5,7 +5,7 @@ const productSchema=mongoose.Schema({
     productSize:{type:String,required:true },
     productPrice:{type:Number,required:true },
     productQuantity:{type:Number,required:true},
-    productTitle:{type:String,required:true },
+    productImage:{type:String,required:true },
 },{
     timeStamps:true
 })

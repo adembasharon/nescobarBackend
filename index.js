@@ -6,6 +6,7 @@ const cors = require("cors");
 const userRoutes = require("./routes/auth");
 const postRoutes = require("./routes/post")
 const bookingRoutes = require("./routes/nodemailer")
+const orderRoutes= require("./routes/nodemailer")
 const productRoutes = require("./routes/product")
 const app = express()
 dotenv.config()
@@ -36,6 +37,6 @@ app.get("/", (req, res) => {
 app.use(express.json());
 app.use("/api/auth", userRoutes);
 app.use("/api/product", productRoutes);
-
+app.use("/api",orderRoutes)
 app.use("/api", bookingRoutes);
 app.use("/api/post", postRoutes);

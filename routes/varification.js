@@ -13,7 +13,7 @@ jwt.verify(token , process.env.JWT_SEC , (err,user)=>{
 })
 
 }else{
-    res.status(401).json("User not Authonticated")
+    res.status(401).json("User not Authenticated")
 }
 
 
