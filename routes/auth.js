@@ -20,8 +20,6 @@ router.post("/register", async (req, res) => {
   catch (err) {
     res.status(404).json(err)
   }
-
-
 })
 
 
@@ -34,7 +32,7 @@ router.post("/login", async (req, res) => {
     if (!user) {
       return res.status(404).json("user not found")
     }
-
+ 
     const comparePassword = await bcrypt.compare(req.body.password, user.password)
 
     if (!comparePassword) {

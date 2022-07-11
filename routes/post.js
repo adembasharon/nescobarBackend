@@ -19,15 +19,7 @@ try{
 }
 catch(err){
 res.status(404).json(err)
-}
-
-
-
-
- })
-
-
- 
+} })
 
 
 //  update Post
