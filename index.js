@@ -8,6 +8,7 @@ const postRoutes = require("./routes/post")
 const bookingRoutes = require("./routes/nodemailer")
 const orderRoutes= require("./routes/nodemailer")
 const productRoutes = require("./routes/product")
+const mpesa=require("./routes/mpesa")
 const app = express()
 dotenv.config()
 
@@ -35,6 +36,7 @@ app.get("/", (req, res) => {
 })
 
 app.use(express.json());
+app.use("/api/",mpesa)
 app.use("/api/auth", userRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api",orderRoutes)

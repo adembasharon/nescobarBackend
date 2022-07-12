@@ -9,7 +9,6 @@ jwt.verify(token , process.env.JWT_SEC , (err,user)=>{
 
     err ? res.status(403).json("Token is Not Valid") : req.user=user
     next()
-
 })
 
 }else{
