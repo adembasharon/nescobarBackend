@@ -16,9 +16,7 @@ return passString
 exports.token=(req,res,next)=>{
     const url="https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
     const auth="basic" + Buffer.from(consumerKey + ":" + consumerSecret)
-    const headers={
-        Authorization:auth,
-    }
+    
 axios.get(url,{
     headers:headers,
 })
@@ -33,8 +31,13 @@ axios.get(url,{
 exports.mpesaPassword=(req,res)=>{
     res.send(newPassword());
 };
+
 exports.stkPush=(req,res)=>{
     const token=req.token;
+
+    const headers={
+        Authorization:"Bearer" + token,
+    };
 
     const stkURL="https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
 
@@ -47,11 +50,15 @@ exports.stkPush=(req,res)=>{
         PartyA:"254708374149",
         PartyB:"174379",
         PhoneNumber:"254708374149",
-        callBackURL:"https://mydomain.com/path",
+        callBackURL:"https://localhost:5000/stk/push/url",
         AccountReference:"Nesco_Bar",
         TransactionDesc:"Lipa Na M-PESA"
     };
-    res.send(token)
+    // res.send(token)
+    axios
+    .post(stkURL,data,{headers:headers})
+    .then((res)=>res.send(res.data));
+
 };
 
 
