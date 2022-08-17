@@ -21,12 +21,10 @@ catch(err){
 res.status(404).json(err)
 } })
 
-
 //  update Post
 router.put("/:id", verifyTokeAndAdmin, async (req,res)=>{
     try{
         const id=req.params.id
-
         const updates=req.body
         const options={new:true}
         const updatedPost= await Posts.findByIdAndUpdate(id,updates,options)
@@ -36,8 +34,6 @@ router.put("/:id", verifyTokeAndAdmin, async (req,res)=>{
         res.status(500).json(err)
     }
     })
-
-
 
     // delete post
 router.delete("/:id",verifyTokeAndAdmin,async(req,res)=>{

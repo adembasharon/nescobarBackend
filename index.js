@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
 })
 
 app.use(express.json());
-app.use("/api/",mpesa)
+app.use("/api/mpesa",mpesa)
 app.use("/api/auth", userRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api",orderRoutes)
