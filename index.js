@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const cloudinary = require("cloudinary")
+// const cloudinary = require("cloudinary")
 const dotenv = require("dotenv");
 const express = require("express");
 const cors = require("cors");
@@ -8,7 +8,7 @@ const postRoutes = require("./routes/post")
 const bookingRoutes = require("./routes/nodemailer")
 const orderRoutes= require("./routes/nodemailer")
 const productRoutes = require("./routes/product")
-const mpesa=require("./routes/mpesa")
+const mpesaRoutes=require("./routes/mpesa")
 const app = express()
 dotenv.config()
 
@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
 })
 
 app.use(express.json());
-app.use("/api/mpesa",mpesa)
+app.use("/api",mpesaRoutes)
 app.use("/api/auth", userRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api",orderRoutes)
